@@ -236,7 +236,7 @@ void GameState::Update(float dt)
 
 	if (lives == 0)
 	{
-		player->Death();
+		_data->machine.AddState(StateRef(new GameOverState(_data)), true);
 	}
 
 	if (shieldLife1 == 0)

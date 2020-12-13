@@ -14,6 +14,7 @@
 #include "Collision.h"
 #include "HUD.h"
 #include "Shield.h"
+#include "GameOverState.h"
 
 class GameState : public State
 {

@@ -7,6 +7,8 @@
 #include "Game.h"
 #include "Definitions.h"
 #include "AssetManager.h"
+#include "Background.h"
+#include "GameState.h"
 
 class GameOverState : public State
 {
@@ -16,14 +18,20 @@ public:
 
 	void Init();
 
-	void Input();
+	void HandleInput();
 
-	void Update();
+	void Update(float dt);
 
-	void Draw();
+	void Draw(float dt);
 
 private:
 
 	GameDataRef _data;
+
+	sf::Event event;
+
+	sf::Sprite Button;
+
+	Background* background;
 
 };

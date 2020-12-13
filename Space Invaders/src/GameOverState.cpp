@@ -2,21 +2,47 @@
 
 GameOverState::GameOverState(GameDataRef data) : _data(data)
 {
-
 }
 
 void GameOverState::Init()
 {
+	_data->assets.LoadTexture("Background Texture", BACKGROUND_TEX);
+	_data->assets.LoadTexture("Button Texture", PLAY_BUTTON_TEX);
+
+	background = new Background(_data);
+
+	Button.setOrigin(Button.getGlobalBounds().width / 2, Button.getGlobalBounds().height / 2);
+	Button.setPosition(SCREEN_WIDTH / 2 - 150, SCREEN_HEIGHT / 2 + 75);
+	Button.setTexture(this->_data->assets.GetTexture("Button Texture"));
 }
 
-void GameOverState::Input()
+void GameOverState::HandleInput()
+{
+	while (_data->window.pollEvent(event))
+	{
+		if (sf::Event::Closed == event.type)
+		{
+			_data->window.close();
+		}
+
+		if (_data->input.IsSpriteClicked(Button, sf::Mouse::Left, _data->window))
+		{
+			_data->machine.AddState(StateRef(new GameState(_data)), true);
+		}
+	}
+}
+
+void GameOverState::Update(float dt)
 {
 }
 
-void GameOverState::Update()
+void GameOverState::Draw(float dt)
 {
-}
+	_data->window.clear(); 
 
-void GameOverState::Draw()
-{
+	background->Draw();
+
+	_data->window.draw(Button);
+
+	_data->window.display();
 }
