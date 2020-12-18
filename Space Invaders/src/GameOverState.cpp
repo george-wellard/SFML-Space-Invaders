@@ -9,7 +9,16 @@ void GameOverState::Init()
 	_data->assets.LoadTexture("Background Texture", BACKGROUND_TEX);
 	_data->assets.LoadTexture("Button Texture", PLAY_BUTTON_TEX);
 
+	_data->assets.LoadFont("Font", FONT);
+
 	background = new Background(_data);
+
+	title.setOrigin(title.getGlobalBounds().width / 2, title.getGlobalBounds().height / 2);
+	title.setPosition(SCREEN_WIDTH / 3, SCREEN_HEIGHT / 4);
+	title.setFont(this->_data->assets.GetFont("Font"));
+	title.setString("GAME OVER");
+	title.setCharacterSize(56);
+	title.setFillColor(sf::Color::White);
 
 	Button.setOrigin(Button.getGlobalBounds().width / 2, Button.getGlobalBounds().height / 2);
 	Button.setPosition(SCREEN_WIDTH / 2 - 150, SCREEN_HEIGHT / 2 + 75);
@@ -43,6 +52,7 @@ void GameOverState::Draw(float dt)
 	background->Draw();
 
 	_data->window.draw(Button);
+	_data->window.draw(title);
 
 	_data->window.display();
 }

@@ -9,6 +9,7 @@
 #include "AssetManager.h"
 #include "Background.h"
 #include "GameState.h"
+#include "HUD.h"
 
 class GameOverState : public State
 {
@@ -31,6 +32,8 @@ private:
 	sf::Event event;
 
 	sf::Sprite Button;
+
+	sf::Text title; 
 
 	Background* background;
 

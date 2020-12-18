@@ -13,7 +13,7 @@ void SplashState::Init()
 	background = new Background(_data);
 
 	Logo.setOrigin(Logo.getGlobalBounds().width / 2, Logo.getGlobalBounds().height / 2);
-	Logo.setPosition(75, 100);
+	Logo.setPosition(SCREEN_WIDTH / 14, SCREEN_HEIGHT / 8);
 	Logo.setTexture(this->_data->assets.GetTexture("Logo Texture"));
 
 	Button.setOrigin(Button.getGlobalBounds().width / 2, Button.getGlobalBounds().height / 2);
