@@ -167,6 +167,7 @@
     <ClCompile Include="src\HUD.cpp" />
     <ClCompile Include="src\InputManager.cpp" />
     <ClCompile Include="src\Invader.cpp" />
+    <ClCompile Include="src\Lives.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\Shield.cpp" />
@@ -185,6 +186,7 @@
     <ClInclude Include="include\HUD.h" />
     <ClInclude Include="include\InputManager.h" />
     <ClInclude Include="include\Invader.h" />
+    <ClInclude Include="include\Lives.h" />
     <ClInclude Include="include\Player.h" />
     <ClInclude Include="include\Shield.h" />
     <ClInclude Include="include\SplashState.h" />

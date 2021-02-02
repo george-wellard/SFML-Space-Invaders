@@ -11,6 +11,7 @@ void GameState::Init()
 	_data->assets.LoadTexture("Invader Texture", INVADER_TEX);
 	_data->assets.LoadTexture("Bullet Texture", BULLET_TEX);
 	_data->assets.LoadTexture("Shield Texture", SHIELD_TEX);
+	_data->assets.LoadTexture("Life Texture", LIFE_TEXT);
 
 	_data->assets.LoadFont("Font", FONT);
 
@@ -50,6 +51,18 @@ void GameState::Init()
 	shields.push_back(shield1);
 	shields.push_back(shield2);
 	shields.push_back(shield3);
+
+	Lives life1(_data);
+	Lives life2(_data);
+	Lives life3(_data);
+
+	life1.setPos(10, 10);
+	life2.setPos(30, 10);
+	life3.setPos(50, 10);
+
+	hearts.push_back(life1);
+	hearts.push_back(life2);
+	hearts.push_back(life3);
 }
 
 void GameState::HandleInput()
@@ -284,6 +297,11 @@ void GameState::Draw(float dt)
 	for (int i = 0; i < shields.size(); i++)
 	{
 		shields[i].Draw();
+	}
+
+	for (int i = 0; i < hearts.size(); i++)
+	{
+		hearts[i].Draw();
 	}
 
 	hud->Draw();

@@ -10,5 +10,6 @@
 #define SHIELD_TEX "res/ShieldSheet.png"
 #define PLAY_BUTTON_TEX "res/PlayButton.png"
 #define LOGO_TEX "res/logo.png"
+#define LIFE_TEXT "res/life.png"
 
 #define FONT "res/FlappyFont.ttf"

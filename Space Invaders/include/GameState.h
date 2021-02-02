@@ -14,6 +14,7 @@
 #include "Collision.h"
 #include "HUD.h"
 #include "Shield.h"
+#include "Lives.h"
 #include "GameOverState.h"
 
 class GameState : public State
@@ -39,6 +40,8 @@ private:
 	sf::RenderWindow* window;
 	sf::Clock _clock;
 
+	sf::Sprite life;
+
 	Background* background;
 	Player* player;
 	Bullet* bullet;
@@ -46,11 +49,13 @@ private:
 	Collision collision;
 	HUD* hud;
 	Shield* shield;
+	Lives* life;
 
 	std::vector<Bullet> bullets;
 	std::vector<Bullet> badBullets;
 	std::vector<Invader> invaders;
 	std::vector<Shield> shields;
+	std::vector<Lives> hearts;
 
 	bool isFiring = false;
 
