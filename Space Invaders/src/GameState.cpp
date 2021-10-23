@@ -133,7 +133,7 @@ void GameState::Update(float dt)
 	if (_clock.getElapsedTime().asSeconds() > rand() % 3000)
 	{
 		Bullet badBullet3(_data);
-		badBullet3.setPos(invaders.at(2).getSprite().getPosition().x, invaders.at(3).getSprite().getPosition().y);
+		badBullet3.setPos(invaders.at(2).getSprite().getPosition().x, invaders.at(2).getSprite().getPosition().y);
 		badBullets.push_back(badBullet3);
 		_clock.restart();
 	}
