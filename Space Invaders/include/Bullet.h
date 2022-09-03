@@ -16,6 +16,8 @@ public:
 
 	void Draw(); 
 
+	bool alive = true;
+
 	sf::Sprite getSprite();
 
 	//sf::Texture bulletTex;

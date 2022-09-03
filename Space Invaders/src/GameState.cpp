@@ -112,6 +112,11 @@ void GameState::Update(float dt)
 	for (int i = 0; i < bullets.size(); i++)
 	{
 		bullets[i].Fire(-10);
+		
+		if (bullets[i].alive == false)
+		{
+			bullets.erase(bullets.begin() + i);
+		}
 	}
 
 	if (_clock.getElapsedTime().asSeconds() > rand() % 3000)
@@ -173,8 +178,8 @@ void GameState::Update(float dt)
 		{
 			if (collision.CheckSpriteCollision(invaders[i].getSprite(), bullets[j].getSprite()))
 			{
-				invaders.erase(invaders.begin() + i);
-				bullets.erase(bullets.begin() + j);
+				invaders[i].alive = false;
+				bullets[i].alive = false;
 			}
 		}
 	}
@@ -183,7 +188,7 @@ void GameState::Update(float dt)
 	{
 		if (bullets[i].getSprite().getPosition().y < 0)
 		{
-			bullets.erase(bullets.begin() + i);
+			bullets[i].alive = false;
 		}
 	}
 
@@ -202,7 +207,7 @@ void GameState::Update(float dt)
 		{
 			if (collision.CheckSpriteCollision(shields[i].getSprite(), bullets[j].getSprite()))
 			{
-				bullets.erase(bullets.begin() + j);
+				bullets[j].alive = false;
 			}
 		}
 	}
